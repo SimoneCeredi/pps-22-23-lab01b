@@ -27,5 +27,10 @@ class LogicsTest {
         assertTrue(() -> this.logics.hasKnight(KNIGHT.getX(), KNIGHT.getY()));
     }
 
+    @Test
+    void testPawnExists() {
+        assertTrue(() -> this.logics.hasPawn(PAWN.getX(), PAWN.getY()));
+    }
+
 
 }
