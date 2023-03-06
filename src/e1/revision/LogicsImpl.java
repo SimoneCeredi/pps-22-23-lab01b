@@ -28,7 +28,7 @@ public class LogicsImpl implements Logics {
         this.knight = this.pieceFactory.createKnight(randomEmptyPosition());
     }
 
-    private final Pair<Integer, Integer> randomEmptyPosition() {
+    private Pair<Integer, Integer> randomEmptyPosition() {
         Pair<Integer, Integer> pos = new Pair<>(this.random.nextInt(size), this.random.nextInt(size));
         // the recursive call below prevents clash with an existing pawn
         return this.pawn != null && this.pawn.getLocation().equals(pos) ? randomEmptyPosition() : pos;
