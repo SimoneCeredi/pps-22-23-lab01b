@@ -49,6 +49,6 @@ class OldLogicsTest extends LogicsTest {
 class NewLogicsTest extends LogicsTest {
     @BeforeEach
     void setUp() {
-        logics = new e1.revision.piece.LogicsImpl(FIELD_SIZE, PAWN, KNIGHT);
+        logics = new e1.revision.LogicsImpl(FIELD_SIZE, PAWN, KNIGHT);
     }
 }
