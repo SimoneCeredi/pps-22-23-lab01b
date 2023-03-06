@@ -11,4 +11,9 @@ public class PieceFactoryImpl implements PieceFactory {
             return x != 0 && y != 0 && x + y == 3;
         });
     }
+
+    @Override
+    public Piece createPawn(Pair<Integer, Integer> location) {
+        return new PieceImpl(location, (start, finish) -> false);
+    }
 }
