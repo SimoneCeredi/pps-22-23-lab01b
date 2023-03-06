@@ -14,4 +14,11 @@ public interface Piece {
      * @return the new location of the piece
      */
     Pair<Integer, Integer> move(int row, int column);
+
+    /**
+     * Returns the piece location
+     *
+     * @return the piece location
+     */
+    Pair<Integer, Integer> getLocation();
 }

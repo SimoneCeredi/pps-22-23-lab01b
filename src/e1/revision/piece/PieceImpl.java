@@ -22,4 +22,9 @@ public class PieceImpl implements Piece {
         }
         return this.location;
     }
+
+    @Override
+    public Pair<Integer, Integer> getLocation() {
+        return this.location;
+    }
 }

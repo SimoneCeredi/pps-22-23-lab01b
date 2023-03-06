@@ -5,16 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LogicsTest {
+abstract class LogicsTest {
     public static final int FIELD_SIZE = 5;
     public static final Pair<Integer, Integer> PAWN = new Pair<>(1, 2);
     public static final Pair<Integer, Integer> KNIGHT = new Pair<>(0, 0);
-    private Logics logics;
+    protected Logics logics;
 
-    @BeforeEach
-    void setUp() {
-        this.logics = new LogicsImpl(FIELD_SIZE, PAWN, KNIGHT);
-    }
 
     @Test
     void testCantMoveOutsideField() {
@@ -40,4 +36,19 @@ class LogicsTest {
     }
 
 
+}
+
+
+class OldLogicsTest extends LogicsTest {
+    @BeforeEach
+    void setUp() {
+        logics = new LogicsImpl(FIELD_SIZE, PAWN, KNIGHT);
+    }
+}
+
+class NewLogicsTest extends LogicsTest {
+    @BeforeEach
+    void setUp() {
+        logics = new e1.revision.piece.LogicsImpl(FIELD_SIZE, PAWN, KNIGHT);
+    }
 }
