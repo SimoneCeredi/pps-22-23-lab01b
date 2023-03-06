@@ -21,4 +21,10 @@ class KnightTest {
     void testKnightIllegalMove() {
         assertEquals(LOCATION, this.knight.move(LOCATION.getX() + 1, LOCATION.getY() + 1));
     }
+
+    @Test
+    void testKnightLegalMove() {
+        Pair<Integer, Integer> newLocation = new Pair<>(LOCATION.getX() + 1, LOCATION.getY() + 2);
+        assertEquals(newLocation, this.knight.move(newLocation.getX(), newLocation.getY()));
+    }
 }
