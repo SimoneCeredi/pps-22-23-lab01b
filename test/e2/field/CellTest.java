@@ -6,18 +6,40 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CellTest {
+abstract class CellTest {
 
-    private static final Pair<Integer, Integer> CELL_POSITION = new Pair<>(0, 0);
-    private Cell cell;
+    protected static final Pair<Integer, Integer> CELL_POSITION = new Pair<>(0, 0);
+    protected Cell cell;
 
-    @BeforeEach
-    void setUp() {
-        this.cell = new CellImpl(CELL_POSITION);
-    }
 
     @Test
     void testCellPosition() {
         assertEquals(CELL_POSITION, this.cell.getPosition());
+    }
+
+
+}
+
+class MineTest extends CellTest {
+    @BeforeEach
+    void setUp() {
+        super.cell = new CellImpl(CELL_POSITION, () -> true);
+    }
+
+    @Test
+    void testIsCellMine() {
+        assertTrue(this.cell.isMine());
+    }
+}
+
+class EmptyCellTest extends CellTest {
+    @BeforeEach
+    void setUp() {
+        super.cell = new CellImpl(CELL_POSITION, () -> false);
+    }
+
+    @Test
+    void testIsCellMine() {
+        assertFalse(this.cell.isMine());
     }
 }
