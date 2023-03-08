@@ -14,13 +14,7 @@ class FieldTest {
 
     public static final Pair<Integer, Integer> SIZE = new Pair<>(7, 7);
     public static final int MINES_QUANTITY = 5;
-
     private Field field;
-
-    @BeforeEach
-    void setUp() {
-        this.field = new FieldImpl(SIZE, this.createMines(MINES_QUANTITY));
-    }
 
     private Map<Pair<Integer, Integer>, Cell> createMines(int minesQuantity) {
         Map<Pair<Integer, Integer>, Cell> mines = new HashMap<>();
@@ -39,6 +33,11 @@ class FieldTest {
         return mines.get(position) != null ? this.randomEmptyPosition(mines) : position;
     }
 
+    @BeforeEach
+    void setUp() {
+        this.field = new FieldImpl(SIZE, this.createMines(MINES_QUANTITY));
+    }
+    
     @Test
     void testFieldSize() {
         assertEquals(SIZE, this.field.getSize());
