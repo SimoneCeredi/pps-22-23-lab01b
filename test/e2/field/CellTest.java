@@ -8,14 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 abstract class CellTest {
 
-    protected static final Pair<Integer, Integer> CELL_POSITION = new Pair<>(0, 0);
     protected Cell cell;
-
-
-    @Test
-    void testCellPosition() {
-        assertEquals(CELL_POSITION, this.cell.getPosition());
-    }
 
 
 }
@@ -23,7 +16,7 @@ abstract class CellTest {
 class MineTest extends CellTest {
     @BeforeEach
     void setUp() {
-        super.cell = new CellImpl(CELL_POSITION, () -> true);
+        super.cell = new CellImpl(() -> true);
     }
 
     @Test
@@ -35,7 +28,7 @@ class MineTest extends CellTest {
 class EmptyCellTest extends CellTest {
     @BeforeEach
     void setUp() {
-        super.cell = new CellImpl(CELL_POSITION, () -> false);
+        super.cell = new CellImpl(() -> false);
     }
 
     @Test

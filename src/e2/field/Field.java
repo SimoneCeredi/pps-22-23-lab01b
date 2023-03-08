@@ -1,5 +1,9 @@
 package e2.field;
 
+import e1.Pair;
+
 public interface Field {
-    int getSize();
+    Pair<Integer, Integer> getSize();
+
+    int getMinesQuantity();
 }
