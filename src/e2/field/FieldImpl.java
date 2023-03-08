@@ -1,6 +1,6 @@
 package e2.field;
 
-import e1.Pair;
+import e2.Pair;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,5 +32,10 @@ public class FieldImpl implements Field {
     @Override
     public int getMinesQuantity() {
         return (int) this.field.values().stream().filter(Cell::isMine).count();
+    }
+
+    @Override
+    public boolean isMine(Pair<Integer, Integer> pos) {
+        return this.field.get(pos).isMine();
     }
 }
