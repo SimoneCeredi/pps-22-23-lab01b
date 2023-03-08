@@ -1,6 +1,9 @@
 package e2;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LogicsTest {
 
@@ -10,5 +13,10 @@ class LogicsTest {
     @BeforeEach
     void setUp() {
         this.logics = new LogicsImpl(SIZE);
+    }
+
+    @Test
+    void testLogicsIsCorrectSize() {
+        assertEquals(SIZE, this.logics.getSize());
     }
 }
