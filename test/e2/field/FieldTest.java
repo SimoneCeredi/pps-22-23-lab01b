@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FieldTest {
 
-    public static final Pair<Integer, Integer> SIZE = new Pair<>(7, 7);
+    public static final int SIZE = 7;
     public static final int MINES_QUANTITY = 5;
     private Field field;
 
@@ -29,7 +29,7 @@ class FieldTest {
 
     private Pair<Integer, Integer> randomEmptyPosition(Map<Pair<Integer, Integer>, Cell> mines) {
         Random random = new Random();
-        Pair<Integer, Integer> position = new Pair<>(random.nextInt(SIZE.getX()), random.nextInt(SIZE.getY()));
+        Pair<Integer, Integer> position = new Pair<>(random.nextInt(SIZE), random.nextInt(SIZE));
         return mines.get(position) != null ? this.randomEmptyPosition(mines) : position;
     }
 
@@ -37,7 +37,7 @@ class FieldTest {
     void setUp() {
         this.field = new FieldImpl(SIZE, this.createMines(MINES_QUANTITY));
     }
-    
+
     @Test
     void testFieldSize() {
         assertEquals(SIZE, this.field.getSize());
