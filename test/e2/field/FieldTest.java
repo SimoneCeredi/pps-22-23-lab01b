@@ -1,6 +1,7 @@
 package e2.field;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,5 +15,9 @@ class FieldTest {
         this.field = new FieldImpl(SIZE);
     }
 
-    
+    @Test
+    void testFieldSize() {
+        assertEquals(SIZE, this.field.getSize());
+    }
+
 }
