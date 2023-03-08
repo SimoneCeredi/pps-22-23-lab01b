@@ -28,7 +28,7 @@ public class GUI extends JFrame {
             final JButton bt = (JButton) e.getSource();
             final Pair<Integer, Integer> pos = buttons.get(bt);
             boolean aMineWasFound = this.logics.isMine(pos); // call the logic here to tell it that cell at 'pos' has been seleced
-            if (/*aMineWasFound*/ true) {
+            if (aMineWasFound) {
                 quitGame();
                 JOptionPane.showMessageDialog(this, "You lost!!");
             } else {
@@ -81,7 +81,7 @@ public class GUI extends JFrame {
     }
 
     private void drawBoard() {
-        for (var entry : this.buttons.entrySet()) {
+        for (Entry<JButton, Pair<Integer, Integer>> entry : this.buttons.entrySet()) {
             // call the logic here
             // if this button is a cell with counter, put the number
             // if this button has a flag, put the flag
