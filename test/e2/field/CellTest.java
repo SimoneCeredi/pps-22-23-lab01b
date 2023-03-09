@@ -10,6 +10,10 @@ abstract class CellTest {
 
     protected Cell cell;
 
+    @Test
+    void testCellStartsNotHitted() {
+        assertFalse(this.cell.isHitted());
+    }
 
 }
 
