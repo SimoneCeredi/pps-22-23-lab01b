@@ -87,6 +87,7 @@ public class GUI extends JFrame {
             // if this button is a cell with counter, put the number
             // if this button has a flag, put the flag
             if (this.logics.isHitted(entry.getValue())) {
+                entry.getKey().setEnabled(false);
                 entry.getKey().setText(String.valueOf(this.logics.getCellNearbyMines(entry.getValue())));
             }
         }
