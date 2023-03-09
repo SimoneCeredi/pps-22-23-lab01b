@@ -7,7 +7,7 @@ public class CellFactoryImpl implements CellFactory {
     }
 
     @Override
-    public Cell empty() {
-        return new CellImpl(() -> false);
+    public Cell empty(int nearbyMines) {
+        return new CellImpl(() -> false, nearbyMines);
     }
 }

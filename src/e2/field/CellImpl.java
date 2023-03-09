@@ -2,10 +2,17 @@ package e2.field;
 
 public class CellImpl implements Cell {
     private final MineStrategy strategy;
+    private final int nearbyMines;
     private boolean hitted;
+
+    public CellImpl(MineStrategy strategy, int nearbyMines) {
+        this.strategy = strategy;
+        this.nearbyMines = nearbyMines;
+    }
 
     public CellImpl(MineStrategy strategy) {
         this.strategy = strategy;
+        this.nearbyMines = 0;
     }
 
     @Override
@@ -21,5 +28,10 @@ public class CellImpl implements Cell {
     @Override
     public void hit() {
         this.hitted = true;
+    }
+
+    @Override
+    public int getNearbyMines() {
+        return this.nearbyMines;
     }
 }

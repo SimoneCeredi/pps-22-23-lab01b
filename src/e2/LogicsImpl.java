@@ -43,5 +43,20 @@ public class LogicsImpl implements Logics {
         return this.field.isMine(pos);
     }
 
+    @Override
+    public void hit(Pair<Integer, Integer> pos) {
+        this.field.hit(pos);
+    }
+
+    @Override
+    public boolean isHitted(Pair<Integer, Integer> pos) {
+        return this.field.isHitted(pos);
+    }
+
+    @Override
+    public int getCellNearbyMines(Pair<Integer, Integer> pos) {
+        return this.field.getNearbyMines(pos);
+    }
+
 
 }
