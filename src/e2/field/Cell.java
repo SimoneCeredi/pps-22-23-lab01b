@@ -6,4 +6,6 @@ public interface Cell {
     boolean isMine();
 
     boolean isHitted();
+
+    void hit();
 }

@@ -1,10 +1,8 @@
 package e2.field;
 
-import e1.Pair;
-
 public class CellImpl implements Cell {
     private final MineStrategy strategy;
-    private boolean isHitted;
+    private boolean hitted;
 
     public CellImpl(MineStrategy strategy) {
         this.strategy = strategy;
@@ -17,6 +15,11 @@ public class CellImpl implements Cell {
 
     @Override
     public boolean isHitted() {
-        return this.isHitted;
+        return this.hitted;
+    }
+
+    @Override
+    public void hit() {
+        this.hitted = true;
     }
 }

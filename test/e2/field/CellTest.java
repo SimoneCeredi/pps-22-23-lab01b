@@ -15,6 +15,12 @@ abstract class CellTest {
         assertFalse(this.cell.isHitted());
     }
 
+    @Test
+    void testCellCanGetHit() {
+        this.cell.hit();
+        assertTrue(this.cell.isHitted());
+    }
+
 }
 
 class MineTest extends CellTest {
