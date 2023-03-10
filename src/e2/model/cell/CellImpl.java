@@ -6,6 +6,7 @@ public class CellImpl implements Cell {
     private final MineStrategy strategy;
     private final int nearbyMines;
     private boolean hitted;
+    private boolean flagged;
 
     public CellImpl(MineStrategy strategy, int nearbyMines) {
         this.strategy = strategy;
@@ -35,5 +36,15 @@ public class CellImpl implements Cell {
     @Override
     public int getNearbyMines() {
         return this.nearbyMines;
+    }
+
+    @Override
+    public boolean isFlagged() {
+        return this.flagged;
+    }
+
+    @Override
+    public void flag() {
+        this.flagged = true;
     }
 }

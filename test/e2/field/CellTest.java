@@ -22,6 +22,16 @@ abstract class CellTest {
         assertTrue(this.cell.isHitted());
     }
 
+    @Test
+    void testCellStartsNotFlagged() {
+        assertFalse(this.cell.isFlagged());
+    }
+
+    @Test
+    void testCellCanGetFlagged() {
+        this.cell.flag();
+        assertTrue(this.cell.isFlagged());
+    }
 }
 
 class MineTest extends CellTest {

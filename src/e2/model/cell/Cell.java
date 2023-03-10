@@ -10,4 +10,8 @@ public interface Cell {
     void hit();
 
     int getNearbyMines();
+
+    boolean isFlagged();
+
+    void flag();
 }
