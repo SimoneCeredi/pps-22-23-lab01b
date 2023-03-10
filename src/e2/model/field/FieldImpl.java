@@ -1,6 +1,9 @@
-package e2.field;
+package e2.model.field;
 
 import e2.Pair;
+import e2.model.cell.Cell;
+import e2.model.cell.factory.CellFactory;
+import e2.model.cell.factory.CellFactoryImpl;
 
 import java.util.HashMap;
 import java.util.Map;

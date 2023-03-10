@@ -1,6 +1,7 @@
 package e2.field;
 
-import e1.Pair;
+import e2.model.cell.Cell;
+import e2.model.cell.CellImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package e2.field;
+package e2.model.field;
 
 import e2.Pair;
 

@@ -1,4 +1,4 @@
-package e2.field;
+package e2.model.cell;
 
 import e1.Pair;
 

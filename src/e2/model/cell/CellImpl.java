@@ -1,4 +1,6 @@
-package e2.field;
+package e2.model.cell;
+
+import e2.model.cell.strategy.MineStrategy;
 
 public class CellImpl implements Cell {
     private final MineStrategy strategy;
