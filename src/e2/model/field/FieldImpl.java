@@ -11,11 +11,11 @@ import java.util.Map;
 public class FieldImpl implements Field {
     private final int size;
     private final CellFactory cellFactory = new CellFactoryImpl();
-    private final Map<Pair<Integer, Integer>, Cell> field;
+    private final Map<Pair<Integer, Integer>, Cell> cells;
 
     public FieldImpl(int size, Map<Pair<Integer, Integer>, Cell> mines) {
         this.size = size;
-        this.field = new HashMap<>(mines);
+        this.cells = new HashMap<>(mines);
         this.initEmptyField();
     }
 
@@ -24,8 +24,8 @@ public class FieldImpl implements Field {
             for (int j = 0; j < this.size; j++) {
                 int finalI = i;
                 int finalJ = j;
-                this.field.putIfAbsent(new Pair<>(i, j), this.cellFactory.empty(
-                        (int) this.field.entrySet().stream()
+                this.cells.putIfAbsent(new Pair<>(i, j), this.cellFactory.empty(
+                        (int) this.cells.entrySet().stream()
                                 .filter(entry -> entry.getValue().isMine())
                                 .filter(entry -> {
                                     Pair<Integer, Integer> pos = entry.getKey();
@@ -42,27 +42,32 @@ public class FieldImpl implements Field {
     }
 
     @Override
+    public Map<Pair<Integer, Integer>, Cell> getCells() {
+        return this.cells;
+    }
+
+    @Override
     public int getMinesQuantity() {
-        return (int) this.field.values().stream().filter(Cell::isMine).count();
+        return (int) this.cells.values().stream().filter(Cell::isMine).count();
     }
 
     @Override
     public boolean isMine(Pair<Integer, Integer> pos) {
-        return this.field.get(pos).isMine();
+        return this.cells.get(pos).isMine();
     }
 
     @Override
     public void hit(Pair<Integer, Integer> pos) {
-        this.field.get(pos).hit();
+        this.cells.get(pos).hit();
     }
 
     @Override
     public boolean isHitted(Pair<Integer, Integer> pos) {
-        return this.field.get(pos).isHitted();
+        return this.cells.get(pos).isHitted();
     }
 
     @Override
     public int getNearbyMines(Pair<Integer, Integer> pos) {
-        return this.field.get(pos).getNearbyMines();
+        return this.cells.get(pos).getNearbyMines();
     }
 }
