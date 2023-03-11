@@ -10,13 +10,5 @@ public interface Field {
 
     Map<Pair<Integer, Integer>, Cell> getCells();
 
-    int getMinesQuantity();
 
-    boolean isMine(Pair<Integer, Integer> pos);
-
-    void hit(Pair<Integer, Integer> pos);
-
-    boolean isHitted(Pair<Integer, Integer> pos);
-
-    int getNearbyMines(Pair<Integer, Integer> pos);
 }

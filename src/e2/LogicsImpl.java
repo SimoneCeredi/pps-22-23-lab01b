@@ -1,5 +1,7 @@
 package e2;
 
+import e2.model.Model;
+import e2.model.ModelImpl;
 import e2.model.cell.Cell;
 import e2.model.cell.factory.CellFactory;
 import e2.model.cell.factory.CellFactoryImpl;
@@ -9,14 +11,15 @@ import e2.model.field.FieldImpl;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 public class LogicsImpl implements Logics {
 
     private static final int MINES_QUANTITY = 10;
-    private final Field field;
+    private final Model model;
 
     public LogicsImpl(int size) {
-        this.field = new FieldImpl(size, this.createMines(size, MINES_QUANTITY));
+        this.model = new ModelImpl(new FieldImpl(size, this.createMines(size, MINES_QUANTITY)));
     }
 
     private Map<Pair<Integer, Integer>, Cell> createMines(int size, int minesQuantity) {
@@ -38,27 +41,31 @@ public class LogicsImpl implements Logics {
 
     @Override
     public int getSize() {
-        return this.field.getSize();
+        return this.model.getFieldSize();
     }
 
     @Override
     public boolean isMine(e2.Pair<Integer, Integer> pos) {
-        return this.field.isMine(pos);
+        return this.model.isMine(pos);
     }
 
     @Override
     public void hit(Pair<Integer, Integer> pos) {
-        this.field.hit(pos);
+        this.model.hit(pos);
+        if (this.model.getNearbyMines(pos) == 0) {
+            Set<Pair<Integer, Integer>> cells = this.model.getNearbyNotHittedCellsPosition(pos);
+            cells.forEach(this::hit);
+        }
     }
 
     @Override
     public boolean isHitted(Pair<Integer, Integer> pos) {
-        return this.field.isHitted(pos);
+        return this.model.isHitted(pos);
     }
 
     @Override
     public int getCellNearbyMines(Pair<Integer, Integer> pos) {
-        return this.field.getNearbyMines(pos);
+        return this.model.getNearbyMines(pos);
     }
 
 

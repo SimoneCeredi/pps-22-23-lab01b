@@ -45,29 +45,4 @@ public class FieldImpl implements Field {
     public Map<Pair<Integer, Integer>, Cell> getCells() {
         return this.cells;
     }
-
-    @Override
-    public int getMinesQuantity() {
-        return (int) this.cells.values().stream().filter(Cell::isMine).count();
-    }
-
-    @Override
-    public boolean isMine(Pair<Integer, Integer> pos) {
-        return this.cells.get(pos).isMine();
-    }
-
-    @Override
-    public void hit(Pair<Integer, Integer> pos) {
-        this.cells.get(pos).hit();
-    }
-
-    @Override
-    public boolean isHitted(Pair<Integer, Integer> pos) {
-        return this.cells.get(pos).isHitted();
-    }
-
-    @Override
-    public int getNearbyMines(Pair<Integer, Integer> pos) {
-        return this.cells.get(pos).getNearbyMines();
-    }
 }
