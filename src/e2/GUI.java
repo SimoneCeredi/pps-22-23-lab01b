@@ -1,5 +1,8 @@
 package e2;
 
+import e2.logics.Logics;
+import e2.logics.LogicsImpl;
+
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.event.MouseInputListener;

@@ -1,4 +1,6 @@
-package e2;
+package e2.logics;
+
+import e2.Pair;
 
 public interface Logics {
 

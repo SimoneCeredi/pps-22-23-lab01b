@@ -1,5 +1,6 @@
-package e2;
+package e2.logics;
 
+import e2.Pair;
 import e2.model.Model;
 import e2.model.ModelImpl;
 import e2.model.cell.Cell;
