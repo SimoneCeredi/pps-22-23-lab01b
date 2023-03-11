@@ -23,4 +23,6 @@ public interface Model {
     boolean isFlagged(Pair<Integer, Integer> pos);
 
     void toggleFlag(Pair<Integer, Integer> pos);
+
+    boolean isThereVictory();
 }

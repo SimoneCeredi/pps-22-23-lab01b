@@ -50,10 +50,12 @@ public class LogicsImpl implements Logics {
 
     @Override
     public void hit(Pair<Integer, Integer> pos) {
-        this.model.hit(pos);
-        if (this.model.getNearbyMines(pos) == 0) {
-            Set<Pair<Integer, Integer>> cells = this.model.getNearbyNotHittedCellsPosition(pos);
-            cells.forEach(this::hit);
+        if (!this.isMine(pos)) {
+            this.model.hit(pos);
+            if (this.model.getNearbyMines(pos) == 0) {
+                Set<Pair<Integer, Integer>> cells = this.model.getNearbyNotHittedCellsPosition(pos);
+                cells.forEach(this::hit);
+            }
         }
     }
 
@@ -75,6 +77,11 @@ public class LogicsImpl implements Logics {
     @Override
     public void toggleFlag(Pair<Integer, Integer> pos) {
         this.model.toggleFlag(pos);
+    }
+
+    @Override
+    public boolean isThereVictory() {
+        return this.model.isThereVictory();
     }
 
 

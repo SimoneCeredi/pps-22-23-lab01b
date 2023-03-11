@@ -16,6 +16,7 @@ public class FieldImpl implements Field {
     public FieldImpl(int size, Map<Pair<Integer, Integer>, Cell> mines) {
         this.size = size;
         this.cells = new HashMap<>(mines);
+//        this.cells.keySet().forEach(key -> System.out.println("x: " + key.getX() + "\ty: " + key.getY()));
         this.initEmptyField();
     }
 

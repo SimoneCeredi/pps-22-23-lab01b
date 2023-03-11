@@ -15,4 +15,6 @@ public interface Logics {
     boolean isFlagged(Pair<Integer, Integer> pos);
 
     void toggleFlag(Pair<Integer, Integer> pos);
+
+    boolean isThereVictory();
 }

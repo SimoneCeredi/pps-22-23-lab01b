@@ -65,4 +65,10 @@ public class ModelImpl implements Model {
     public void toggleFlag(Pair<Integer, Integer> pos) {
         this.field.getCells().get(pos).toggleFlag();
     }
+
+    @Override
+    public boolean isThereVictory() {
+        return this.field.getCells().values().stream()
+                .filter(cell -> !cell.isHitted()).allMatch(Cell::isMine);
+    }
 }
