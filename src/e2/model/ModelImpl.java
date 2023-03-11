@@ -55,4 +55,14 @@ public class ModelImpl implements Model {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toSet());
     }
+
+    @Override
+    public boolean isFlagged(Pair<Integer, Integer> pos) {
+        return this.field.getCells().get(pos).isFlagged();
+    }
+
+    @Override
+    public void toggleFlag(Pair<Integer, Integer> pos) {
+        this.field.getCells().get(pos).toggleFlag();
+    }
 }

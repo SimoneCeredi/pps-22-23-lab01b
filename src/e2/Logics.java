@@ -11,4 +11,8 @@ public interface Logics {
     boolean isHitted(Pair<Integer, Integer> pos);
 
     int getCellNearbyMines(Pair<Integer, Integer> pos);
+
+    boolean isFlagged(Pair<Integer, Integer> pos);
+
+    void toggleFlag(Pair<Integer, Integer> pos);
 }

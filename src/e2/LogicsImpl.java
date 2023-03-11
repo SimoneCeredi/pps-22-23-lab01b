@@ -5,7 +5,6 @@ import e2.model.ModelImpl;
 import e2.model.cell.Cell;
 import e2.model.cell.factory.CellFactory;
 import e2.model.cell.factory.CellFactoryImpl;
-import e2.model.field.Field;
 import e2.model.field.FieldImpl;
 
 import java.util.HashMap;
@@ -66,6 +65,16 @@ public class LogicsImpl implements Logics {
     @Override
     public int getCellNearbyMines(Pair<Integer, Integer> pos) {
         return this.model.getNearbyMines(pos);
+    }
+
+    @Override
+    public boolean isFlagged(Pair<Integer, Integer> pos) {
+        return this.model.isFlagged(pos);
+    }
+
+    @Override
+    public void toggleFlag(Pair<Integer, Integer> pos) {
+        this.model.toggleFlag(pos);
     }
 
 

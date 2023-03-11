@@ -29,7 +29,7 @@ abstract class CellTest {
 
     @Test
     void testCellCanGetFlagged() {
-        this.cell.flag();
+        this.cell.toggleFlag();
         assertTrue(this.cell.isFlagged());
     }
 }

@@ -1,7 +1,5 @@
 package e2.model.cell;
 
-import e1.Pair;
-
 public interface Cell {
     boolean isMine();
 
@@ -13,5 +11,5 @@ public interface Cell {
 
     boolean isFlagged();
 
-    void flag();
+    void toggleFlag();
 }

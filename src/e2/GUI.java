@@ -50,6 +50,7 @@ public class GUI extends JFrame {
                 if (bt.isEnabled()) {
                     final Pair<Integer, Integer> pos = buttons.get(bt);
                     // call the logic here to put/remove a flag
+                    logics.toggleFlag(pos);
                 }
                 drawBoard();
             }
@@ -89,6 +90,10 @@ public class GUI extends JFrame {
             if (this.logics.isHitted(entry.getValue())) {
                 entry.getKey().setEnabled(false);
                 entry.getKey().setText(String.valueOf(this.logics.getCellNearbyMines(entry.getValue())));
+            } else if (this.logics.isFlagged(entry.getValue())) {
+                entry.getKey().setText("F");
+            } else {
+                entry.getKey().setText("");
             }
         }
     }

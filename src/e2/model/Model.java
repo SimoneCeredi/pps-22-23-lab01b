@@ -19,4 +19,8 @@ public interface Model {
     int getNearbyMines(Pair<Integer, Integer> pos);
 
     Set<Pair<Integer, Integer>> getNearbyNotHittedCellsPosition(Pair<Integer, Integer> pos);
+
+    boolean isFlagged(Pair<Integer, Integer> pos);
+
+    void toggleFlag(Pair<Integer, Integer> pos);
 }
